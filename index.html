@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>분리수거 챌린지</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- 시작 화면 -->
+  <div id="startScreen" class="screen active fade-in">
+    <h1 class="main-title">♻️ 분리수거 챌린지</h1>
+    <p class="subtitle">올바른 분리수거로 점수를 획득하세요!</p>
+    <button id="startBtn">게임 시작 🚀</button>
+  </div>
+
+  <!-- 게임 화면 -->
+  <div id="gameScreen" class="screen">
+    <h1 class="title">♻️ 분리수거 챌린지</h1>
+
+    <div id="status">
+      🎯 점수: <span id="score">0</span> |
+      ❌ 오답: <span id="wrong">0</span>/3 |
+      ⏱️ 시간: <span id="time">60</span>s |
+      🚀 레벨: <span id="levelDisp">1</span>
+    </div>
+
+    <div id="bins">
+      <div class="bin recycle" ondrop="drop(event)" ondragover="allowDrop(event)">♻️<br>재활용</div>
+      <div class="bin compost" ondrop="drop(event)" ondragover="allowDrop(event)">🍌<br>음식물</div>
+      <div class="bin trash" ondrop="drop(event)" ondragover="allowDrop(event)">🗑️<br>일반</div>
+    </div>
+
+    <div id="items"></div>
+
+    <div id="progressArea">
+      <div class="label">레벨 진행률</div>
+      <div id="progressBar"><div id="progress"></div></div>
+    </div>
+
+    <!-- 오디오 -->
+    <audio id="bgm" src="https://cdn.pixabay.com/download/audio/2022/05/15/audio_12345.mp3" loop preload="auto"></audio>
+    <audio id="correctSound" src="https://cdn.pixabay.com/download/audio/2022/10/09/audio_03c019fba1.mp3" preload="auto"></audio>
+    <audio id="wrongSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_48f11a420f.mp3" preload="auto"></audio>
+    <audio id="gameOverSound" src="https://cdn.pixabay.com/download/audio/2022/12/05/audio_98765.mp3" preload="auto"></audio>
+  </div>
+
+  <!-- 게임오버 화면 -->
+  <div id="gameOverScreen" class="screen fade-in">
+    <h1 id="gameOverTitle">게임 오버 😞</h1>
+    <p class="result">최종 점수: <span id="finalScore">0</span></p>
+    <p class="result">최고 점수: <span id="bestScore">0</span></p>
+    <button id="restartBtn">다시 하기 🔁</button>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
